@@ -1,5 +1,5 @@
 {
-  "name": "wp_starter",
+  "name": "wp_starter_theme",
   "version": "1.0.0",
   "description": "wp starter theme",
   "main": "gulpfile.js",
