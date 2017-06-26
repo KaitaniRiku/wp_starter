@@ -8,6 +8,7 @@ if (!class_exists( 'Timber')) {
 	return;
 }
 Timber::$dirname = array('views');
+
 class Site extends TimberSite {
 	
 	function __construct() {
@@ -57,6 +58,7 @@ class Site extends TimberSite {
 	}
 }
 new Site();
+
 function trimWords($string, $len = 50){
 	$text = TimberHelper::trim_words($string, $len, false);
 	$last = $text[strlen($text) - 1];
@@ -65,12 +67,15 @@ function trimWords($string, $len = 50){
 	}
 	return $text;
 }
+
 function deregister_scripts(){
 	wp_deregister_script( 'wp-embed' );
 }
+
 function convertToTimberImage($imageArray) {
 	return (is_array($imageArray)) ? new TimberImage($imageArray['ID']) : '';
 }
+
 function downsize($image, $width, $height = 0){
 	if(get_class($image) != 'TimberImage') { return 'downsize should be applied to a TimberImage only'; }
 	$src = $image->get_src();
