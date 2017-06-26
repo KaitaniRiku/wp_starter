@@ -1,0 +1,77 @@
+{
+  "name": "wp_starter",
+  "version": "1.0.0",
+  "description": "wp starter theme",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "dom-classes": "^1.0.0",
+    "dom-create-element": "^1.0.2",
+    "dom-event": "^1.0.0",
+    "dom-events": "^0.1.1",
+    "dom-select": "^1.0.0",
+    "prefix": "^1.0.0",
+    "promise": "7.0.4",
+    "query-dom-components": "^0.1.0",
+    "sniffer": "github:watsondg/sniffer",
+    "gsap": "^1.19.0",
+    "smooth-scrolling": "^2.2.8",
+    "swiper": "^3.4.2",
+    "slider-manager": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.18.5",
+    "browserify": "^13.3.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "es6-promise": "^4.0.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-changed": "^3.1.0",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-jshint": "^2.0.3",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.0.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.4",
+    "lodash.assign": "^4.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vinyl-transform": "^1.0.0",
+    "watchify": "^3.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tibuakaw/wp_starter.git"
+  },
+  "bugs": {
+    "url": "",
+    "email": ""
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "only": "assets/js/",
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thibaud Allie",
+  "license": "ISC"
+}

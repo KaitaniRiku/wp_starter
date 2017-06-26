@@ -1,0 +1,27 @@
+@import './import/variables';
+/* -----
+Typography, WebFonts
+----- */
+
+@font-face {
+  font-family: 'graphik';
+  src: url('../assets/fonts/Graphik-Regular-Web.eot');
+  src: url('../assets/fonts/Graphik-Regular-Web.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/Graphik-Regular-Web.woff2') format('woff2'),
+       url('../assets/fonts/Graphik-Regular-Web.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('../assets/fonts/Graphik-Medium-Web.eot');
+  src: url('../assets/fonts/Graphik-Medium-Web.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/Graphik-Medium-Web.woff2') format('woff2'),
+       url('../assets/fonts/Graphik-Medium-Web.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+

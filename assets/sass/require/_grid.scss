@@ -1,0 +1,49 @@
+/* -----
+12 columns Responsive Grid
+----- */
+.row {
+  zoom: 1;
+}
+.row:before, .row:after {
+  content:'\0020';
+  display:block;
+  overflow:hidden;
+  visibility:hidden;
+  width:0;
+  height:0
+}
+.row:after {
+  clear:both;
+}
+.device-content{
+  position: relative;
+  width: 1050px;
+}
+.column{
+  display: block;
+  float: left;
+  min-height: 1px;
+}
+
+.inline{
+  display: inline-block;
+  vertical-align: top;
+}
+.col-1{width:8.33333333333%}
+.col-2{width:16.6666666667%}
+.col-3{width:25.0%}
+.col-4{width:33%}
+.col-5{width:41.6666666667%}
+.col-6{width:50.0%}
+.col-7{width:58.3333333333%}
+.col-8{width:66%}
+.col-9{width:74.0%}
+.col-10{width:83.3333333333%}
+.col-11{width:91.6666666667%}
+.col-12{width:100%}
+
+img.scale-with-grid{
+  width: 100%;
+  height: auto;
+  display: block;
+}
