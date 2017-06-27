@@ -6,7 +6,7 @@ wp theme starter
 
 ```sh
 # clone repo to local
-git clone https://github.com/tibuakaw/wp_starter.git
+git clone -b wp_slider_manager https://github.com/tibuakaw/wp_starter.git
 
 # move into directory
 cd starter
