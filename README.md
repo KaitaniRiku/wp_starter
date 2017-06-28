@@ -9,7 +9,7 @@ wp theme starter
 git clone https://github.com/tibuakaw/wp_starter.git
 
 # move into directory
-cd starter
+cd wp_starter
 
 # install dependencies
 npm i
