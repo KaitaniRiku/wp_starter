@@ -2,34 +2,34 @@
 
     function custom_post_types() {
 
-        work_post();
+        custom_post();
     }
     
-    function work_post() {
+    function custom_post() {
         $labels = array(
-            'name'               => _x( 'Works', 'post type general name' ),
-            'singular_name'      => _x( 'Work', 'post type singular name' ),
-            'add_new'            => _x( 'Add Work', 'book' ),
-            'add_new_item'       => __( 'Add New Work' ),
-            'edit_item'          => __( 'Edit Work' ),
-            'new_item'           => __( 'New Work' ),
-            'all_items'          => __( 'All Works' ),
-            'view_item'          => __( 'View Work' ),
-            'search_items'       => __( 'Search Works' ),
-            'not_found'          => __( 'No work found' ),
-            'not_found_in_trash' => __( 'No work found in the Trash' ),
+            'name'               => _x( 'PostTypeName', 'post type general name' ),
+            'singular_name'      => _x( 'PostTypeName', 'post type singular name' ),
+            'add_new'            => _x( 'Add PostTypeName', 'book' ),
+            'add_new_item'       => __( 'Add New PostTypeName' ),
+            'edit_item'          => __( 'Edit PostTypeName' ),
+            'new_item'           => __( 'New PostTypeName' ),
+            'all_items'          => __( 'All PostTypeName' ),
+            'view_item'          => __( 'View PostTypeName' ),
+            'search_items'       => __( 'Search PostTypeName' ),
+            'not_found'          => __( 'No post found' ),
+            'not_found_in_trash' => __( 'No post found in the Trash' ),
             'parent_item_colon'  => '',
-            'menu_name'          => 'Works'
+            'menu_name'          => 'PostTypeName'
         );
         $args = array(
             'labels'        => $labels,
-            'description'   => 'Work posts',
+            'description'   => 'PostTypeName posts',
             'public'        => true,
             'menu_position' => 5,
             'taxonomies'    => array('category'),
-            'supports'      => array( 'title'),
+            'supports'          => array( 'title','editor', 'revisions', 'thumbnail', 'post-formats', 'page-attributes'),
             'has_archive'   => true,
-            'rewrite' => array('slug' => 'work', 'with_front' => false) // with_front: false overides default permalink /blog
+            'rewrite' => array('slug' => 'PostTypeName', 'with_front' => false) // with_front: false overides default permalink /blog
         );
-        register_post_type( 'Work', $args );
+        register_post_type( 'PostTypeName', $args );
     }
