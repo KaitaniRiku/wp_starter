@@ -1,27 +1,50 @@
 <!doctype html>
-<html lang="en" class="{% if iOS %}{{ iOS }}{% endif %}{% if iPad %} ipad{% endif %}">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
-        <link rel="profile" href="http://gmpg.org/xfn/11">        
-        <title>{{ wp_title ? wp_title ~ ' | ' }} {{ site.name }}</title>
+<html {{site.language_attributes}} class="{% if iOS %}{{ iOS }}{% endif %}{% if iPad %} ipad{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
+    <link rel="profile" href="http://gmpg.org/xfn/11">        
+    <title>   
+        {% if wp_title %}
+        {{ wp_title }} | {{ site.name }}
+        {% else %}
+        {{ site.name }}
+        {% endif %}
+    </title>
+    <meta name="description" content="{{site.description}}">
 
         <!--[if lt IE 9]>
             <link rel="stylesheet" href="{{ site.theme.link }}/css/ie9.css">
             <script>var browser = 'ie9';</script>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        
-        <link rel="stylesheet" href="{{ site.theme.link }}/build/app.min.css">
-        {{ wp_head }}
-    </head>
+            <![endif]-->
+            
+            <link rel="stylesheet" href="{{ site.theme.link }}/build/app.min.css">
+            {{ wp_head }}
+        </head>
 
-    <body class="{{ body_class }}">
+        <body class="{{ body_class }}">
 
-        <header>
-            <nav>
-                
-            </nav>
-        </header>
-    
+            <header class="header" >
+                {% block header %}
+
+                <nav>
+                    <ul class="main-nav">
+                        {% for item in menu.get_items %}
+                        <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+                            {% if item.get_children %}
+                            <ul class="nav-drop">
+                              {% for child in item.get_children %}
+                              <li class="nav-drop-item"><a href="{{child.get_link}}">{{child.title}}</a></li>
+                              {% endfor %}
+                          </ul>
+                          {% endif %}
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </nav>
+
+              {% endblock %}
+          </header>
+          

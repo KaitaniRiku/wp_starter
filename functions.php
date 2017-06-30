@@ -3,8 +3,8 @@ include_once 'includes/custom_post_types.php';
 include_once 'includes/lib/Mobile_Detect.php';
 if (!class_exists( 'Timber')) {
 	add_action( 'admin_notices', function() {
-			echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
-		} );
+		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+	} );
 	return;
 }
 Timber::$dirname = array('views');
@@ -12,7 +12,7 @@ Timber::$dirname = array('views');
 class Site extends TimberSite {
 	
 	function __construct() {
-		// show_admin_bar(false);
+		show_admin_bar(false);
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
@@ -41,21 +41,23 @@ class Site extends TimberSite {
 		custom_post_types();
 	}
 	function add_to_context( $context ) {
-		$context['site'] = $this;
+	$context['site'] = $this;
 
-		$context['option'] = get_fields('option');
-		$context['isMobile'] = $this->detect->isMobile();
-		$context['isTablet'] = $this->detect->isTablet();
+	$context['option'] = get_fields('option');
+	$context['isMobile'] = $this->detect->isMobile();
+	$context['isTablet'] = $this->detect->isTablet();
 
-		return $context;
-	}
-	function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter('trimWords', new Twig_Filter_Function('trimWords'));
-		$twig->addFilter('ti', new Twig_Filter_Function('convertToTimberImage'));
-		$twig->addFilter('downsize', new Twig_Filter_Function('downsize'));
-		return $twig;
-	}
+	$context['menu'] = new TimberMenu(); 
+	
+	return $context;
+}
+function add_to_twig( $twig ) {
+	$twig->addExtension( new Twig_Extension_StringLoader() );
+	$twig->addFilter('trimWords', new Twig_Filter_Function('trimWords'));
+	$twig->addFilter('ti', new Twig_Filter_Function('convertToTimberImage'));
+	$twig->addFilter('downsize', new Twig_Filter_Function('downsize'));
+	return $twig;
+}
 }
 new Site();
 

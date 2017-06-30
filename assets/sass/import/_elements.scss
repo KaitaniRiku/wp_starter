@@ -1,4 +1,4 @@
-@import 'variables';
+@import './require/var';
 
 /* 
 elements
@@ -18,6 +18,8 @@ elements
 body{
 	height:100%;
 	width:100%;
+    font-family: $graphik;
+    font-weight: $regular;
 }
 
 a {
