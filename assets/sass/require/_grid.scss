@@ -47,3 +47,32 @@ img.scale-with-grid{
   height: auto;
   display: block;
 }
+
+.grid{
+  clear: both;
+  width: 825px;
+  margin: 0 auto;
+}
+
+.grid-plus{
+  clear: both;
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.is-split{
+  display: inline-block;
+  vertical-align: top;
+  margin: 0em 0 0.5em;
+}
+
+.is-padding{
+  padding: 150px 0;
+}
+
+.is-padding-top{
+  padding: 150px 0 0 0;
+}
+.is-padding-bottom{
+  padding: 0 0 150px 0;
+}

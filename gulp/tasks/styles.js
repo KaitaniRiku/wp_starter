@@ -12,7 +12,7 @@ var rename          = require('gulp-rename');
 
 
 gulp.task('sass', function() {
-    gulp.src('assets/sass/app.scss')
+    gulp.src('assets/sass/layout.scss')
         .pipe(plumber({
             errorHandler: function (err) {
                 console.log(err);

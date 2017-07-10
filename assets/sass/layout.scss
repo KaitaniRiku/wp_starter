@@ -1,4 +1,10 @@
 @import './require/var';
+@import './require/mixins';
+@import './require/keyframes';
+
+@import './require/normalize';
+@import './require/fonts';
+@import './require/grid';
 
 /* 
 elements
@@ -24,26 +30,18 @@ body{
 
 a {
     text-decoration: none;
+
+    &:hover{
+	
+	}
 }
 
-a:hover{
-}
 
 ul {
   list-style-type: none;
 }
 
-h1 {
-}
+@import './import/menu';
+@import './import/footer';
+@import './import/home';
 
-h2{
-}
-
-span{
-}
-
-h3{
-}
-
-p{
-}
