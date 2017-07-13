@@ -7,5 +7,3 @@ import sniffer from 'sniffer'
 sniffer.addClasses(document.documentElement)
 
 config.isMobile && event.on(config.$body, 'touchmove', (e) => e.preventDefault())
-
-slider.init()

@@ -1,26 +1,38 @@
 import Manager from 'slider-manager'
+import gsap from 'gsap'
 
-const slides = document.querySelectorAll('.is_slide')
-
+const slides = [].slice.call(document.querySelectorAll('.slider-content .slide'))
+ 
 const slider = new Manager({
-  length: slides.length - 1,
-  loop: true,
-  direction: 'y',
-  limitInertia: true,
-  callback: (e) => {
+    length: slides.length -1,
+    loop: false,
+    callback: (event) => {
+     
+     console.log(event)
+        
+        const index = event.current
+        const previous = event.previous
+        const down = event.direction === 'down' 
+ 
+        slider.animating = true
+ 
+        const windowheight = window.innerHeight
+        const tl = new TimelineMax({ paused: true, onComplete: () => {
+      
+            slider.animating = false
 
-    console.log(e)
-    slider.animating = true
+        }})
+ 
+        tl.staggerTo(slides, 1, { cycle: {
 
-    slides.forEach((slide, i) => {
-
-      slide.addEventListener('transitionend', () => {
-        slider.animating = false
-      })
-
-      slide.style.transform = i === e.current ? 'none' : i > e.current ? 'translateY(100%)' : 'translateY(-100%)'
-    })
-  }
+            autoAlpha: (loop) => index === loop ? 1 : 0,
+            
+        }, ease: Power1.easeInOut}, 0, 0)
+     
+        tl.restart()
+    }
 })
+ 
+slider.init()
 
 export default slider
